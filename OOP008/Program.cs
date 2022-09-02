@@ -1,3 +1,2 @@
-﻿// liste over landet
-// liste divisioner(top3)
-// liste over hold
+﻿using OOP008;
+new Gui();
