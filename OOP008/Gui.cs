@@ -9,8 +9,8 @@ namespace OOP008
     internal class Gui
     {
 
-        Team lists = new Team(); // Is an intance of a class called lists containing lists need for the code.
-
+        GetTeam team = new GetTeam(); // Is an intance of a class called lists containing lists need for the code.
+        Lists lists = new Lists();
 
 
         public Gui()
@@ -24,14 +24,15 @@ namespace OOP008
             }
 
         }
-
+        // TODO - jeg skal ha sørget for at man kan trykke på esc for at komme til hovedmenuen og ikke hvilken son helst knap(som det er nu).
+        // Så skal jeg ha indført resten af divisionernes hold og lavet stave fejl.
 
 
 
 
         private void Menu()
         {
-               
+
             Console.WriteLine("\nWELCOME!!! PLEASE CHOOSE A COUNTRY");
             Console.WriteLine("\n 1: DENMARK");
 
@@ -58,7 +59,9 @@ namespace OOP008
 
         private void DENMARK()
         {
-            
+            Console.Clear();
+
+
             Console.WriteLine("\nWELCOME!!! PLEASE CHOOSE A DIVISION");
             Console.WriteLine("\nSUPERLIGAEN");
             Console.WriteLine("\nNORDICBET LIGAEN");
@@ -90,9 +93,11 @@ namespace OOP008
 
 
 
+
         private void SuperLigaen()
         {
             Console.Clear();
+
             Console.WriteLine("\nWELCOME!!! PLEASE CHOOSE A TEAM");
             
             Console.WriteLine("\n1:     AAB");
@@ -119,12 +124,20 @@ namespace OOP008
                         ShowTeam(team);
                 }
             }
-
         }
 
         private void ShowTeam(GetTeam t)
         {
-            Console.WriteLine($"{t.TeamId} {t.TeamName} {t.TeamCity} {t.TeamSponsor}");
+            Console.Clear();
+
+            Console.WriteLine($"\n TEAM ID:{t.TeamId}\n TEAM: {t.TeamName}\n CITY {t.TeamCity} \n SPONSOR: {t.TeamSponsor}\n\n LINE-UP: \n\n GK: {t.PlayerName}\n LB: {t.PlayerName2}\n CB: {t.PlayerName3}\n CB: {t.PlayerName4}\n RB: {t.PlayerName5}\n CM: {t.PlayerName6}\n CDM: {t.PlayerName7}\n CM: {t.PlayerName8}\n LW: {t.PlayerName9}\n RW: {t.PlayerName10}\n ST: {t.PlayerName11}\n \n RESERVE: {t.PlayerName12}\n RESERVE: {t.PlayerName13} \n\n\n\n ESC = BACK TO MENU");
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.Escape:
+                    Menu();
+                    break;
+
+            }
         }
 
 
